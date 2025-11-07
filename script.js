@@ -1,15 +1,43 @@
-//creazione delle variabili che poi utilizzeremo
-const numRandom = document.querySelector("h1")
-const numPrimo = document.getElementById("num-1")
-const numSecond = document.getElementById("num-2")
-const numTerzo = document.getElementById("num-3")
-const numQuarto = document.getElementById("num-4")
-const numQuinto = document.getElementById("num-5")
-const btnResult = document.getElementById("submitBtn")
-const risultato = document.getElementById("result")
-let arrayNumerico = ["20","40","25","45","30"]
-console.log
-//processo creativo: 
-// 1)creare un modo per andare a fare il display in pagina di cinque numeri in maniera randomica
-// 2) dopo averli messi in display l'utente inserisce i numeri che si ricorda nelle apposite text area e preme invio sul bottone
-// 3) dopo che ha premuto invio, il computer vede quali sono i numeri che ha azzeccato l'utente e poi gli dice quelli che sono stati azzeccati
+const numRandom = document.querySelector("h1");
+const inputUser = document.querySelectorAll(".form-control");
+const btnResult = document.getElementById("submitBtn");
+const risultato = document.getElementById("result");
+let arrayNumerico = arrayNumbers();
+let arrayUser = [];
+
+// genera array di numeri random
+function arrayNumbers(length = 5) {
+  return Array.from(Array(length), () => Math.floor(Math.random() * 100) + 1);
+}
+
+// visualizza numeri random
+numRandom.innerHTML = arrayNumerico.join(", ");
+
+// timer per nascondere numeri e mostrare i campi input
+setTimeout(function () {
+  numRandom.innerHTML = "ora tocca a te ricordare! miao miao";
+  document.querySelector('.d-none').classList.remove('d-none');
+}, 8000);
+
+btnResult.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  arrayUser = []; 
+  inputUser.forEach(input => {
+    arrayUser.push(parseInt(input.value.trim()));
+  });
+
+  let azzeccati = 0;
+  arrayUser.forEach(numero => {
+    if (arrayNumerico.includes(numero)) {
+      azzeccati++;
+    }
+  });
+if(azzeccati > 1){
+  risultato.innerHTML = `Hai azzeccato ${azzeccati} numeri`;
+}
+else{
+  risultato.innerHTML = `hai azzeccato ${azzeccati} numero`
+}
+
+});
