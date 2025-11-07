@@ -6,9 +6,17 @@ let arrayNumerico = arrayNumbers();
 let arrayUser = [];
 
 // genera array di numeri random
-function arrayNumbers(length = 5) {
-  return Array.from(Array(length), () => Math.floor(Math.random() * 100) + 1);
+function arrayNumbers(length = 5, min = 1, max = 100) {
+  const risultati = [];
+  while (risultati.length < length) {
+    const numero = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!risultati.includes(numero)) {
+      risultati.push(numero);
+    }
+  }
+  return risultati;
 }
+
 
 // visualizza numeri random
 numRandom.innerHTML = arrayNumerico.join(", ");
