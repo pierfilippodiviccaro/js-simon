@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
+
 <body>
+    <div class="principale">
+        <div class="container">
+            <h1 class="numeri"></h1>
+            <p>inserisci tutti i numeri che ricordi (l'ordine non è importante)</p>
+            <div class="row g-3">
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="" id="num-1">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="" id="num-2">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="" id="num-3">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="" id="num-4">
+                </div>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" placeholder="" id="num-5">
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" id="submitBtn">conferma</button>
+                </div>
+                <p id="result"></p>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
     <script src="script.js"></script>
+
 </body>
+
 </html>
